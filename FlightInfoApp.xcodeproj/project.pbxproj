@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A534565426C3048D00B3048D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A534565326C3048D00B3048D /* NetworkManager.swift */; };
+		A537CCF09328B5EEBCCB2182 /* Pods_FlightInfoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7886600CB105CE586F90520 /* Pods_FlightInfoApp.framework */; };
 		A5BD84EE26BE9DE600CC6FE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD84ED26BE9DE600CC6FE8 /* AppDelegate.swift */; };
 		A5BD84F026BE9DE600CC6FE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD84EF26BE9DE600CC6FE8 /* SceneDelegate.swift */; };
 		A5BD84F226BE9DE600CC6FE8 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BD84F126BE9DE600CC6FE8 /* SelectionViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		301388045759EE59F9A079E7 /* Pods-FlightInfoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightInfoApp.debug.xcconfig"; path = "Target Support Files/Pods-FlightInfoApp/Pods-FlightInfoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A534565326C3048D00B3048D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A5BD84EA26BE9DE600CC6FE8 /* FlightInfoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightInfoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BD84ED26BE9DE600CC6FE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +34,8 @@
 		A5BD850D26BF247500CC6FE8 /* ArrivalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalTableViewController.swift; sourceTree = "<group>"; };
 		A5BD851026BF249C00CC6FE8 /* DepartureTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureTableViewController.swift; sourceTree = "<group>"; };
 		A5BD851726BF2DC500CC6FE8 /* ResponseFlights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseFlights.swift; sourceTree = "<group>"; };
+		D7886600CB105CE586F90520 /* Pods_FlightInfoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlightInfoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC20CF6FCD4DC33BF570193F /* Pods-FlightInfoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlightInfoApp.release.xcconfig"; path = "Target Support Files/Pods-FlightInfoApp/Pods-FlightInfoApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,12 +43,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A537CCF09328B5EEBCCB2182 /* Pods_FlightInfoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DB6447376A3B66AE6B4EF0C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				301388045759EE59F9A079E7 /* Pods-FlightInfoApp.debug.xcconfig */,
+				FC20CF6FCD4DC33BF570193F /* Pods-FlightInfoApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		543CAA30F31B811ED3C9E4EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7886600CB105CE586F90520 /* Pods_FlightInfoApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A534565226C3043C00B3048D /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +81,8 @@
 			children = (
 				A5BD84EC26BE9DE600CC6FE8 /* FlightInfoApp */,
 				A5BD84EB26BE9DE600CC6FE8 /* Products */,
+				1DB6447376A3B66AE6B4EF0C /* Pods */,
+				543CAA30F31B811ED3C9E4EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5BD84FE26BE9DE900CC6FE8 /* Build configuration list for PBXNativeTarget "FlightInfoApp" */;
 			buildPhases = (
+				095720CD811234E7957EDD3E /* [CP] Check Pods Manifest.lock */,
 				A5BD84E626BE9DE600CC6FE8 /* Sources */,
 				A5BD84E726BE9DE600CC6FE8 /* Frameworks */,
 				A5BD84E826BE9DE600CC6FE8 /* Resources */,
+				64592DBC36F3886DA14E5D9C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,6 +218,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		095720CD811234E7957EDD3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlightInfoApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64592DBC36F3886DA14E5D9C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlightInfoApp/Pods-FlightInfoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlightInfoApp/Pods-FlightInfoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlightInfoApp/Pods-FlightInfoApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A5BD84E626BE9DE600CC6FE8 /* Sources */ = {
@@ -347,6 +416,7 @@
 		};
 		A5BD84FF26BE9DE900CC6FE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 301388045759EE59F9A079E7 /* Pods-FlightInfoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -366,6 +436,7 @@
 		};
 		A5BD850026BE9DE900CC6FE8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC20CF6FCD4DC33BF570193F /* Pods-FlightInfoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -24,12 +24,12 @@ class ArrivalTableViewController: UITableViewController {
         activityIndicator.hidesWhenStopped = true
         fecthArrivalFlights()
     }
-
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         arrivalFlights.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "arrivalFlightCell", for: indexPath)
         let arrivalFlight = arrivalFlights[indexPath.row]
@@ -84,17 +84,18 @@ class ArrivalTableViewController: UITableViewController {
     }
     
     private func fecthArrivalFlights() {
-        NetworkManager.shared.fecthFlights(from: URLS.apiUrl.rawValue,
-                                           key: URLS.accessKey.rawValue,
-                                           type: .arrival,
-                                           iata: airportIata) { result in
-            switch result {
-            case .success(let flights):
-                self.arrivalFlights = flights
+        NetworkManager.shared.fetchData(from: URLS.apiUrl.rawValue,
+                                        key: URLS.accessKey.rawValue,
+                                        type: .arrival,
+                                        iata: airportIata) { (flights, error) in
+            if let _ = error {
+                self.activityIndicator.stopAnimating()
+                self.networkFailedAlert()
+            } else {
+                guard let arrivalFlights = flights else { return }
+                self.arrivalFlights = arrivalFlights
                 self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
-            case .failure(_):
-                self.networkFailedAlert()
             }
         }
     }

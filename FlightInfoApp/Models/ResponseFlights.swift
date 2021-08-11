@@ -26,6 +26,25 @@ struct Flights: Decodable {
     let flight: Flight?
 //    let aircraft: Aircraft?
 //    let live: Live?
+    init(dataFlight: [String: Any]) {
+        let departureAirport = dataFlight["departure"] as? [String: Any]
+        let departure = DepartureAirport(airport: departureAirport?["airport"] as? String,
+                                         iata: departureAirport?["iata"] as? String,
+                                         scheduled: departureAirport?["scheduled"] as? String)
+        let arrivalAirport = dataFlight["arrival"] as? [String: Any]
+        let arrival = ArrivalAirport(airport: arrivalAirport?["airport"] as? String,
+                                     iata: arrivalAirport?["iata"] as? String,
+                                     scheduled: arrivalAirport?["scheduled"] as? String)
+        let airlineData = dataFlight["airline"] as? [String: Any]
+        let airline = Airline(name: airlineData?["name"] as? String)
+        let flightData = dataFlight["flight"] as? [String: Any]
+        let flight = Flight(iata: flightData?["iata"] as? String)
+        
+        self.departure = departure
+        self.arrival = arrival
+        self.airline = airline
+        self.flight = flight
+    }
 }
 
 struct DepartureAirport: Decodable {

@@ -23,6 +23,7 @@ class DepartureTableViewController: UITableViewController {
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         fecthDepartureFlights()
+        setupRefreshControl()
     }
 
     // MARK: - Table view data source
@@ -83,20 +84,33 @@ class DepartureTableViewController: UITableViewController {
         }
     }
     
-    private func fecthDepartureFlights() {
-        NetworkManager.shared.fetchFlights(from: URLS.apiUrl.rawValue,
-                                           key: URLS.accessKey.rawValue,
-                                           type: .diparture,
-                                           iata: airportIata) { result in
-            switch result {
-            case .success(let flights):
-                self.departureFlights = flights
+    @objc private func fecthDepartureFlights() {
+        NetworkManager.shared.fetchData(from: URLS.apiUrl.rawValue,
+                                        key: URLS.accessKey.rawValue,
+                                        type: .diparture,
+                                        iata: airportIata) { (flights, error) in
+            if let _ = error {
+                self.activityIndicator.stopAnimating()
+                self.networkFailedAlert()
+                if self.refreshControl != nil {
+                    self.refreshControl?.endRefreshing()
+                }
+            } else {
+                guard let departureFlights = flights else { return }
+                self.departureFlights = departureFlights
                 self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
-            case .failure(_):
-                self.networkFailedAlert()
+                if self.refreshControl != nil {
+                    self.refreshControl?.endRefreshing()
+                }
             }
         }
+    }
+    
+    private func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl?.addTarget(self, action: #selector(fecthDepartureFlights), for: .valueChanged)
     }
 
 }

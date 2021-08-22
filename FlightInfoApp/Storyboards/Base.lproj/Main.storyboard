@@ -104,7 +104,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Arrival" image="square.and.arrow.down" catalog="system" id="Xlf-06-a55"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="8Ji-ys-Wxa" id="oP6-p7-F1j"/>
+                        <outlet property="activityIndicator" destination="8Ji-ys-Wxa" id="IHW-0B-A4r"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zo-2N-7oG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -157,7 +157,7 @@
                     <tabBarItem key="tabBarItem" title="Departure" image="square.and.arrow.up" catalog="system" id="uFb-EM-wU5"/>
                     <navigationItem key="navigationItem" id="7uz-ej-l8V"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="BI8-75-QFS" id="bPb-FZ-gfG"/>
+                        <outlet property="activityIndicator" destination="BI8-75-QFS" id="4ug-Ag-VVF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TgC-8a-zJO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
